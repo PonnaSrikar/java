@@ -1,0 +1,20 @@
+import java.util.Random;
+
+class Sensor {
+    int read() { return new Random().nextInt(101); }
+}
+
+class Alarm {
+    int threshold;
+    Alarm(int threshold) { this.threshold = threshold; }
+    void checkSensor(int reading) { System.out.println((reading > threshold) ? "Alert! Reading exceeds threshold: " + reading : "Reading within normal range: " + reading); }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        int threshold = 70;
+        Sensor sensor = new Sensor();
+        Alarm alarm = new Alarm(threshold);
+        for (int i = 0; i < 5; i++) alarm.checkSensor(sensor.read());
+    }
+}
