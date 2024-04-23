@@ -1,0 +1,21 @@
+class Vehicle {
+    private String make, model;
+    private int year;
+    public Vehicle(String make, String model, int year) { this.make = make; this.model = model; this.year = year; }
+    public String getMake() { return make; }
+    public String getModel() { return model; }
+    public int getYear() { return year; }
+}
+
+class Car extends Vehicle {
+    private int seatingCapacity;
+    public Car(String make, String model, int year, int seatingCapacity) { super(make, model, year); this.seatingCapacity = seatingCapacity; }
+    public int getSeatingCapacity() { return seatingCapacity; }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car("Toyota", "Camry", 2022, 5);
+        System.out.println("Make: " + myCar.getMake() + "\nModel: " + myCar.getModel() + "\nYear: " + myCar.getYear() + "\nSeating Capacity: " + myCar.getSeatingCapacity());
+    }
+}
