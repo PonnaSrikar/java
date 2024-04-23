@@ -1,0 +1,13 @@
+import com.fazecast.jSerialComm.SerialPort;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class ArduinoSensorReader {
+    public static void main(String[] args) {
+        SerialPort port = SerialPort.getCommPorts()[0];
+        port.openPort();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(port.getInputStream()));
+        reader.lines().mapToInt(Integer::parseInt).forEach(System.out::println);
+        port.closePort();
+    }
+}
